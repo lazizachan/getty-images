@@ -61,3 +61,8 @@ inputSearch.addEventListener("keydown", function (event) {
     loadImages();
   }
 });
+if (window.matchMedia("(max-width:768px)").matches) {
+  inputSearch.addEventListener("blur", function () {
+    loadImages();
+  });
+}
