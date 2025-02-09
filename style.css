@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
 }
 .img-container {
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
 }
 header {
@@ -36,12 +36,13 @@ header {
   position: relative;
 }
 .input-search {
-  width: 300px;
+  width: 100%;
   height: 40px;
   border-radius: 8px;
   border: none;
   text-align: center;
   font-family: "Playwrite IN", serif;
+  padding: 0 10px;
 }
 .input-search:focus,
 .input-search:not(:placeholder-shown) {
@@ -50,16 +51,27 @@ header {
 .fa-magnifying-glass {
   position: absolute;
   right: 5px;
-  top: 10px;
+  top: 20%;
+  transform: translate(-50%);
+  pointer-events: none;
   font-size: 1.5rem;
 }
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-auto-rows: auto;
+  grid-auto-rows: 1fr;
+  gap: 10px;
   padding: 20px;
   overflow: hidden;
   text-align: center;
+}
+h4::first-letter {
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 1rem;
+  text-transform: lowercase;
 }
 img {
   width: 100%;
@@ -82,4 +94,62 @@ img {
   cursor: pointer;
   margin-bottom: 2rem;
   font-family: "Playwrite IN", serif;
+}
+@media (max-width: 855px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    padding: 5px;
+  }
+  .img-container {
+    text-align: center;
+  }
+  .fa-magnifying-glass {
+    right: 15px;
+  }
+}
+@media (max-width: 540px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 5px;
+    gap: 5px;
+    text-align: center;
+  }
+  .img-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .fa-magnifying-glass {
+    right: 15px;
+    top: 10px;
+  }
+  .img-title {
+    font-size: 1.3rem;
+  }
+  .img-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 5px;
+  }
+  .img-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .fa-magnifying-glass {
+    right: 15px;
+  }
+  .img-title {
+    font-size: 2rem;
+  }
+  .img-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 }
