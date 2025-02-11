@@ -88,15 +88,12 @@ const loadImages = () => {
 };
 
 const mediaQuery = window.matchMedia("(max-width:855px)");
-
 const handleBlur = () => {
   inputSearch.addEventListener("blur", loadImages);
 };
-
 const removeBlur = () => {
   inputSearch.removeEventListener("blur", loadImages);
 };
-
 mediaQuery.addEventListener("change", (event) => {
   if (event.matches) {
     handleBlur();
@@ -108,7 +105,6 @@ mediaQuery.addEventListener("change", (event) => {
 if (mediaQuery.matches) {
   handleBlur();
 }
-
 inputSearch.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     loadImages();
